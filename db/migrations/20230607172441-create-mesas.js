@@ -1,37 +1,37 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Mesas', {
+    await queryInterface.createTable("Mesas", {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        unique: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      id: {
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
       },
       total: {
-        type: Sequelize.FLOAT
+        type: Sequelize.FLOAT,
       },
       propina: {
-        type: Sequelize.FLOAT
+        type: Sequelize.FLOAT,
+      },
+      tipoPropina: {
+        type: Sequelize.ENUM("Tarjeta", "Efectivo"),
       },
       fecha: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Mesas');
-  }
+    await queryInterface.dropTable("Mesas");
+  },
 };

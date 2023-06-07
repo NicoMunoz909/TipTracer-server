@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       id: DataTypes.UUID,
       total: DataTypes.FLOAT,
       propina: DataTypes.FLOAT,
+      tipoPropinas: DataTypes.ENUM("Tarjeta", "Efectivo"),
       fecha: DataTypes.DATE,
     },
     {
