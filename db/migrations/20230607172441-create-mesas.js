@@ -10,6 +10,9 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         type: Sequelize.UUID,
       },
+      nombre: {
+        type: Sequelize.STRING,
+      },
       total: {
         type: Sequelize.FLOAT,
       },

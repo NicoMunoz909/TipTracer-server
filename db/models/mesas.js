@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   Mesas.init(
     {
       id: DataTypes.UUID,
+      name: DataTypes.STRING,
       total: DataTypes.FLOAT,
       propina: DataTypes.FLOAT,
       tipoPropinas: DataTypes.ENUM("Tarjeta", "Efectivo"),
