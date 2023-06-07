@@ -5,22 +5,21 @@ module.exports = {
     await queryInterface.createTable("Mesas", {
       id: {
         allowNull: false,
-        unique: true,
+        autoIncrement: true,
         primaryKey: true,
-        defaultValue: Sequelize.UUIDV4,
-        type: Sequelize.UUID,
-      },
-      nombre: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       total: {
         type: Sequelize.FLOAT,
+      },
+      nombre: {
+        type: Sequelize.STRING,
       },
       propina: {
         type: Sequelize.FLOAT,
       },
       tipoPropina: {
-        type: Sequelize.ENUM("Tarjeta", "Efectivo"),
+        type: Sequelize.ENUM("Efectivo", "Tarjeta"),
       },
       fecha: {
         type: Sequelize.DATE,

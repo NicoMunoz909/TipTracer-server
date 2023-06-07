@@ -13,11 +13,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Mesas.init(
     {
-      id: DataTypes.UUID,
-      name: DataTypes.STRING,
       total: DataTypes.FLOAT,
+      nombre: DataTypes.STRING,
       propina: DataTypes.FLOAT,
-      tipoPropinas: DataTypes.ENUM("Tarjeta", "Efectivo"),
+      tipoPropina: DataTypes.ENUM("Efectivo", "Tarjeta"),
       fecha: DataTypes.DATE,
     },
     {
