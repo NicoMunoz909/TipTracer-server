@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.ENUM("Efectivo", "Tarjeta"),
       },
       fecha: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       createdAt: {
         allowNull: false,

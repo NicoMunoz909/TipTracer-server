@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       nombre: DataTypes.STRING,
       propina: DataTypes.FLOAT,
       tipoPropina: DataTypes.ENUM("Efectivo", "Tarjeta"),
-      fecha: DataTypes.DATE,
+      fecha: DataTypes.DATEONLY,
     },
     {
       sequelize,
