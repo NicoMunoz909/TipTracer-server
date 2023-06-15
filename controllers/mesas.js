@@ -24,4 +24,16 @@ const getById = async (req, res) => {
   res.send(mesa);
 };
 
-module.exports = { getAll, getById };
+const createTable = async (req, res) => {
+  const nuevaMesa = await Mesas.create({ ...req.body });
+  res.send("Mesa creada con exito", nuevaMesa);
+};
+
+const updateTable = async (req, res) => {
+  const mesa = await Mesas.update(
+    { ...req.body },
+    { where: { id: req.params.id } }
+  );
+};
+
+module.exports = { getAll, getById, createTable, updateTable };

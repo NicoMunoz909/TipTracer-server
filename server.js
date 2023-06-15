@@ -9,9 +9,16 @@ app.use(cors());
 app.use(express.json());
 
 //Routes
-const { getAll, getById, getByDay } = require("./controllers/mesas");
+const {
+  getAll,
+  getById,
+  createTable,
+  updateTable,
+} = require("./controllers/mesas");
 app.get("/", getAll);
 app.get("/:id", getById);
+app.post("/", createTable);
+app.patch("/:id", updateTable);
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
