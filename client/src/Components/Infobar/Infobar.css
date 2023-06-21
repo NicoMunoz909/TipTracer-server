@@ -1,0 +1,15 @@
+.infobar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 26px;
+}
+
+.infobar-container div {
+  display: flex;
+  align-items: center;
+}
+
+.infobar-container svg {
+  margin-right: 10px;
+}
