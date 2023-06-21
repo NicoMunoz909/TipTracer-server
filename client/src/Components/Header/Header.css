@@ -1,0 +1,27 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 5px 3px #c9a627 inset;
+}
+
+.header-container div {
+  width: 100px;
+}
+
+.header__menu {
+  font-size: 40px;
+}
+
+.header__icon img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  justify-self: center;
+}
+
+.header__date {
+  text-align: right;
+}
