@@ -1,0 +1,14 @@
+.datebar-container {
+  padding: 10px;
+  font-size: 40px;
+}
+
+.datebar__date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.datebar__date div {
+  display: flex;
+  align-items: center;
+}
