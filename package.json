@@ -4,7 +4,8 @@
   "description": "App to keep track of my tips",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon server.js"
   },
   "author": "NMZ",
   "license": "ISC",
