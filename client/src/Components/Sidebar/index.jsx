@@ -11,10 +11,10 @@ const Sidebar = () => {
     <div id="sidebar" className="sidebar-container">
       <RxCross1 onClick={hideSidebar}></RxCross1>
       <div className="sidebar-content">
-        <a href="">Día</a>
-        <a href="">Semana</a>
-        <a href="">Mes</a>
-        <a href="">Personalizado</a>
+        <a href="/dia">Día</a>
+        <a href="/semana">Semana</a>
+        <a href="/mes">Mes</a>
+        <a href="/custom">Personalizado</a>
       </div>
     </div>
   );
