@@ -2,9 +2,14 @@ import { RxCross1 } from "react-icons/rx";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const hideSidebar = () => {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.style.width = "0";
+  };
+
   return (
-    <div className="sidebar-container">
-      <RxCross1></RxCross1>
+    <div id="sidebar" className="sidebar-container">
+      <RxCross1 onClick={hideSidebar}></RxCross1>
       <div className="sidebar-content">
         <a href="">Día</a>
         <a href="">Semana</a>
