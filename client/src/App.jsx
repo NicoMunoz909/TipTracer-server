@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import Datebar from "./Components/Datebar";
 import Infobar from "./Components/Infobar";
 import Table from "./Components/Table";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Table></Table>
       <Table></Table>
       <Table></Table>
+      <Footer></Footer>
     </div>
   );
 }
