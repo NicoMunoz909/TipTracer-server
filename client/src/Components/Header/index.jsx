@@ -10,7 +10,9 @@ function Header() {
         <GiHamburgerMenu />
       </div>
       <div className="header__icon">
-        <img src={logo} alt="" />
+        <button>
+          <img src={logo} alt="" />
+        </button>
       </div>
       <div className="header__date">
         <p>Lun 05/06</p>

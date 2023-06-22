@@ -1,11 +1,10 @@
 .table-container {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 15px;
   margin: 10px 0px;
   border-radius: 25px;
   border: 1px solid black;
-  font-size: 30px;
 }
 
 .table-info {
@@ -27,4 +26,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  font-size: 22px;
+  border-left: 1px solid black;
 }

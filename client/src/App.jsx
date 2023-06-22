@@ -3,11 +3,12 @@ import Header from "./Components/Header";
 import Datebar from "./Components/Datebar";
 import Infobar from "./Components/Infobar";
 import Table from "./Components/Table";
-import Footer from "./Components/Footer";
+import Sidebar from "./Components/Sidebar";
 
 function App() {
   return (
     <div>
+      <Sidebar></Sidebar>
       <Header></Header>
       <Datebar></Datebar>
       <Infobar></Infobar>
@@ -15,7 +16,6 @@ function App() {
       <Table></Table>
       <Table></Table>
       <Table></Table>
-      <Footer></Footer>
     </div>
   );
 }
