@@ -1,0 +1,8 @@
+.graph-container {
+  display: flex;
+  align-items: center;
+}
+
+.graph-container svg {
+  margin-right: 10px;
+}

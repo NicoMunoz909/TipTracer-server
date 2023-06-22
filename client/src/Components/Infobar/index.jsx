@@ -1,26 +1,16 @@
 import "./Infobar.css";
-import { TbMoneybag, TbCreditCard, TbPlusMinus } from "react-icons/tb";
-import { BsCash } from "react-icons/bs";
+import CardTipsGraph from "../Graphs/CardTipsGraph";
+import CashTipsGraph from "../Graphs/CashTipsGraph";
+import TotalGraph from "../Graphs/TotalGraph";
+import BalanceGraph from "../Graphs/BalanceGraph";
 
 const Infobar = () => {
   return (
     <div className="infobar-container">
-      <div className="infobar__total">
-        <TbMoneybag></TbMoneybag>
-        999
-      </div>
-      <div className="infobar__card">
-        <TbCreditCard></TbCreditCard>
-        999
-      </div>
-      <div className="infobar__cash">
-        <BsCash></BsCash>
-        999
-      </div>
-      <div className="infobar__balance">
-        <TbPlusMinus></TbPlusMinus>
-        999
-      </div>
+      <TotalGraph />
+      <CardTipsGraph />
+      <CashTipsGraph />
+      <BalanceGraph />
     </div>
   );
 };
