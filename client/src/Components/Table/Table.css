@@ -1,0 +1,30 @@
+.table-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px 0px;
+  border-radius: 25px;
+  border: 1px solid black;
+  font-size: 30px;
+}
+
+.table-info {
+  width: 80%;
+}
+
+.table-info p {
+  margin: 0;
+}
+
+.table-info__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.table-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
