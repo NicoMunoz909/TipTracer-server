@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import logo from "../../Assets/logo.png";
+import Clock from "./Clock";
 
 function Header() {
   const showSidebar = () => {
@@ -19,10 +20,7 @@ function Header() {
           <img src={logo} alt="" />
         </button>
       </div>
-      <div className="header__date">
-        <p>Lun 05/06</p>
-        <p>18:26</p>
-      </div>
+      <Clock />
     </div>
   );
 }
