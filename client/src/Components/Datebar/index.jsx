@@ -1,50 +1,31 @@
+import { useState } from "react";
 import "./Datebar.css";
 import { TiArrowSync } from "react-icons/ti";
 
 const Datebar = () => {
-  const dateObejct = new Date(window.location.search.slice(-10) + "T00:00:00");
-  const dateString = window.location.search.slice(-10);
-  const daysArray = [
-    "Domingo",
-    "Lunes",
-    "Martes",
-    "Miercoles",
-    "Jueves",
-    "Viernes",
-    "Sabado",
-  ];
-  const monthArrays = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
+  const [date, setDate] = useState(new Date());
 
   return (
     <div className="datebar-container">
       <div className="datebar__date">
-        <p>{daysArray[dateObejct.getDay()]}</p>
+        <p style={{ textTransform: "capitalize" }}>
+          {date.toLocaleString("es-MX", { weekday: "long" })}
+        </p>
         <div>
           <p>
-            {dateObejct.getDate() + " "}
-            {monthArrays[dateObejct.getMonth()] + " "}
-            {dateObejct.getFullYear()}
+            {date.toLocaleString("es-MX", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+            })}
           </p>
           <form action="">
             <input
               type="date"
-              defaultValue={dateString}
+              defaultValue=""
               id="fecha"
               name="fecha"
-              onChange={(e) => e.target.form.submit()}
+              onChange={(e) => setDate(new Date(e.target.value + "T00:00:00"))}
             ></input>
             <TiArrowSync />
           </form>
