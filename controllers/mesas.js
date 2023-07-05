@@ -26,7 +26,7 @@ const getById = async (req, res) => {
 
 const createTable = async (req, res) => {
   const nuevaMesa = await Mesas.create({ ...req.body });
-  res.send("Mesa creada con exito", nuevaMesa);
+  res.status(200).send(nuevaMesa);
 };
 
 const updateTable = async (req, res) => {

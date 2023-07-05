@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import logo from "../../Assets/logo.png";
 import Clock from "./Clock";
 
-function Header() {
+function Header({ openForm }) {
   const showSidebar = () => {
     const sidebar = document.getElementById("sidebar");
     sidebar.style.width = "100vw";
@@ -16,7 +16,7 @@ function Header() {
         <GiHamburgerMenu onClick={showSidebar} />
       </div>
       <div className="header__icon">
-        <button>
+        <button onClick={() => openForm(true)}>
           <img src={logo} alt="" />
         </button>
       </div>
