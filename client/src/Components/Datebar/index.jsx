@@ -2,9 +2,7 @@ import { useState } from "react";
 import "./Datebar.css";
 import { TiArrowSync } from "react-icons/ti";
 
-const Datebar = () => {
-  const [date, setDate] = useState(new Date());
-
+const Datebar = ({ date, onChange }) => {
   return (
     <div className="datebar-container">
       <div className="datebar__date">
@@ -25,7 +23,7 @@ const Datebar = () => {
               defaultValue=""
               id="fecha"
               name="fecha"
-              onChange={(e) => setDate(new Date(e.target.value + "T00:00:00"))}
+              onChange={(e) => onChange(new Date(e.target.value + "T00:00:00"))}
             ></input>
             <TiArrowSync />
           </form>
