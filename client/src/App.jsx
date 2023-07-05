@@ -12,7 +12,7 @@ function App() {
   const [tables, setTables] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedTable, setSelectedTable] = useState(undefined);
-  let formFlag = "";
+  const [formFlag, setFormFlag] = useState(undefined);
 
   useEffect(() => {
     fetch(`http://localhost:4000/?fecha=${formatDate(date)}`)
@@ -62,17 +62,32 @@ function App() {
     setIsFormOpen(false);
   };
 
-  const handleEdit = () => {
-    console.log("edit");
+  const handleEdit = (e) => {
+    e.preventDefault();
+    const formBody = {
+      nombre: e.target[0].value,
+      total: e.target[1].value,
+      propina: e.target[2].value,
+      tipoPropina: e.target[3].value,
+      fecha: e.target[4].value,
+    };
+    fetch(`http://localhost:4000/${selectedTable.id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+      body: JSON.stringify(formBody),
+    });
+    setIsFormOpen(false);
   };
 
   const createTable = () => {
-    formFlag = "Create";
+    setFormFlag("Create");
     setIsFormOpen(true);
   };
 
   const editTable = (table) => {
-    formFlag = "Edit";
+    setFormFlag("Edit");
     setSelectedTable(table);
     setIsFormOpen(true);
   };
@@ -87,6 +102,7 @@ function App() {
           onEdit={handleEdit}
           onCancel={() => setIsFormOpen(false)}
           tableInfo={selectedTable}
+          formFlag={formFlag}
         />
       )}
       <Header openForm={createTable}></Header>
