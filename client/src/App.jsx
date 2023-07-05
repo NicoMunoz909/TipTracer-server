@@ -11,6 +11,8 @@ function App() {
   const [date, setDate] = useState(new Date());
   const [tables, setTables] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [selectedTable, setSelectedTable] = useState(undefined);
+  let formFlag = "";
 
   useEffect(() => {
     fetch(`http://localhost:4000/?fecha=${formatDate(date)}`)
@@ -60,24 +62,43 @@ function App() {
     setIsFormOpen(false);
   };
 
+  const handleEdit = () => {
+    console.log("edit");
+  };
+
+  const createTable = () => {
+    formFlag = "Create";
+    setIsFormOpen(true);
+  };
+
+  const editTable = (table) => {
+    formFlag = "Edit";
+    setSelectedTable(table);
+    setIsFormOpen(true);
+  };
+
   return (
     <div>
       <Sidebar></Sidebar>
       {isFormOpen && (
         <FormModal
           formatDate={formatDate}
-          onSubmit={handleCreate}
+          onCreate={handleCreate}
+          onEdit={handleEdit}
           onCancel={() => setIsFormOpen(false)}
+          tableInfo={selectedTable}
         />
       )}
-      <Header openForm={setIsFormOpen}></Header>
+      <Header openForm={createTable}></Header>
       <Datebar date={date} onChange={setDate}></Datebar>
       <Infobar amounts={amounts}></Infobar>
       {tables.length === 0 && (
         <h2 style={{ textAlign: "center" }}>No hay mesas que pobreza</h2>
       )}
       {tables.map((table) => {
-        return <Table key={table.id} item={table} />;
+        return (
+          <Table key={table.id} item={table} onEdit={() => editTable(table)} />
+        );
       })}
     </div>
   );
