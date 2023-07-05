@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const Clock = () => {
   const [date, setDate] = useState(new Date());
 
-  useEffect(() => {
-    const updateClock = setInterval(setDate(new Date()), 1000);
-    return () => clearInterval(updateClock);
-  }, []);
+  // useEffect(() => {
+  //   const updateClock = setInterval(setDate(new Date()), 1000);
+  //   return () => clearInterval(updateClock);
+  // }, []);
 
   return (
     <div className="header__clock">
@@ -18,12 +18,12 @@ const Clock = () => {
           month: "2-digit",
         })}
       </p>
-      <p>
+      {/* <p>
         {date.toLocaleTimeString("es-MX", {
           hour: "2-digit",
           minute: "2-digit",
         })}
-      </p>
+      </p> */}
     </div>
   );
 };

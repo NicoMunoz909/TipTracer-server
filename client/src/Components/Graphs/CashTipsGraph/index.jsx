@@ -1,11 +1,11 @@
 import "../Graph.css";
 import { BsCash } from "react-icons/bs";
 
-const CashTipsGraph = () => {
+const CashTipsGraph = ({ amount }) => {
   return (
     <div className="graph-container">
       <BsCash></BsCash>
-      999
+      {amount}
     </div>
   );
 };

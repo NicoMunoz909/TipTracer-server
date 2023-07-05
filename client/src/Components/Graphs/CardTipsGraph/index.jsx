@@ -1,11 +1,11 @@
 import "../Graph.css";
 import { TbCreditCard } from "react-icons/tb";
 
-const CardTipsGraph = () => {
+const CardTipsGraph = ({ amount }) => {
   return (
     <div className="graph-container">
       <TbCreditCard></TbCreditCard>
-      999
+      {amount}
     </div>
   );
 };
