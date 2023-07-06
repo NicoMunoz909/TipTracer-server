@@ -6,7 +6,7 @@ import "./Datebar.css";
 const Datebar = ({ onChange, date }) => {
   return (
     <div className="datebar-container">
-      <Weekly onChange={onChange} date={date} />
+      <Daily onChange={onChange} date={date} />
     </div>
   );
 };

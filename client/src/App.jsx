@@ -14,12 +14,18 @@ function App() {
   const [selectedTable, setSelectedTable] = useState(undefined);
   const [formFlag, setFormFlag] = useState(undefined);
 
+  // useEffect(() => {
+  //   fetch(
+  //     `http://localhost:4000/?fechaDesde=${formatDate(
+  //       getWeekRange(date).firstDay
+  //     )}&fechaHasta=${formatDate(getWeekRange(date).lastDay)}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setTables(data));
+  // }, [date, isFormOpen]);
+
   useEffect(() => {
-    fetch(
-      `http://localhost:4000/?fechaDesde=${formatDate(
-        getWeekRange(date).firstDay
-      )}&fechaHasta=${formatDate(getWeekRange(date).lastDay)}`
-    )
+    fetch(`http://localhost:4000/?fecha=${formatDate(date)}`)
       .then((res) => res.json())
       .then((data) => setTables(data));
   }, [date, isFormOpen]);
