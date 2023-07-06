@@ -125,16 +125,18 @@ function App() {
       {tables.length === 0 && (
         <h2 style={{ textAlign: "center" }}>No hay mesas que pobreza</h2>
       )}
-      {tables.map((table) => {
-        return (
-          <Table
-            key={table.id}
-            item={table}
-            onEdit={() => editTable(table)}
-            onDelete={() => deleteTable(table)}
-          />
-        );
-      })}
+      <div className="tablesContainer">
+        {tables.map((table) => {
+          return (
+            <Table
+              key={table.id}
+              item={table}
+              onEdit={() => editTable(table)}
+              onDelete={() => deleteTable(table)}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
