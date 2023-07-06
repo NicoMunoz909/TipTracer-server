@@ -15,7 +15,11 @@ function App() {
   const [formFlag, setFormFlag] = useState(undefined);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/?fecha=${formatDate(date)}`)
+    fetch(
+      `http://localhost:4000/?fechaDesde=${formatDate(
+        getWeekRange(date).firstDay
+      )}&fechaHasta=${formatDate(getWeekRange(date).lastDay)}`
+    )
       .then((res) => res.json())
       .then((data) => setTables(data));
   }, [date, isFormOpen]);
@@ -42,6 +46,27 @@ function App() {
       date.toLocaleDateString("es-MX", { day: "2-digit" })
     );
   };
+
+  function getWeekRange(date) {
+    const firstDayOfWeek = date.getDate() - date.getDay() + 1; // Calculate the first day of the week
+    const lastDayOfWeek = firstDayOfWeek + 6; // Add six days to get the last day of the week
+
+    const firstDay = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      firstDayOfWeek
+    );
+    const lastDay = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      lastDayOfWeek
+    );
+
+    return {
+      firstDay,
+      lastDay,
+    };
+  }
 
   const handleCreate = (e) => {
     e.preventDefault();
