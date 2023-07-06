@@ -6,7 +6,7 @@ import { BsTrash } from "react-icons/bs";
 import BalanceGraph from "../Graphs/BalanceGraph";
 import CashTipsGraph from "../Graphs/CashTipsGraph";
 
-const Table = ({ item, onEdit }) => {
+const Table = ({ item, onEdit, onDelete }) => {
   const date = new Date(item.fecha + "T00:00:00");
 
   return (
@@ -47,7 +47,7 @@ const Table = ({ item, onEdit }) => {
       </div>
       <div className="table-controls">
         <TbEdit onClick={onEdit}></TbEdit>
-        <BsTrash></BsTrash>
+        <BsTrash onClick={onDelete}></BsTrash>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./Components/Header";
 import Datebar from "./Components/Datebar";
 import Infobar from "./Components/Infobar";
 import Table from "./Components/Table";
 import Sidebar from "./Components/Sidebar";
-import { useEffect, useState } from "react";
 import FormModal from "./Components/FormModal";
 
 function App() {
@@ -81,6 +81,13 @@ function App() {
     setIsFormOpen(false);
   };
 
+  const handleDelete = () => {
+    fetch(`http://localhost:4000/${selectedTable.id}`, {
+      method: "DELETE",
+    });
+    setIsFormOpen(false);
+  };
+
   const createTable = () => {
     setFormFlag("Create");
     setIsFormOpen(true);
@@ -88,6 +95,12 @@ function App() {
 
   const editTable = (table) => {
     setFormFlag("Edit");
+    setSelectedTable(table);
+    setIsFormOpen(true);
+  };
+
+  const deleteTable = (table) => {
+    setFormFlag("Delete");
     setSelectedTable(table);
     setIsFormOpen(true);
   };
@@ -100,6 +113,7 @@ function App() {
           formatDate={formatDate}
           onCreate={handleCreate}
           onEdit={handleEdit}
+          onDelete={handleDelete}
           onCancel={() => setIsFormOpen(false)}
           tableInfo={selectedTable}
           formFlag={formFlag}
@@ -113,7 +127,12 @@ function App() {
       )}
       {tables.map((table) => {
         return (
-          <Table key={table.id} item={table} onEdit={() => editTable(table)} />
+          <Table
+            key={table.id}
+            item={table}
+            onEdit={() => editTable(table)}
+            onDelete={() => deleteTable(table)}
+          />
         );
       })}
     </div>

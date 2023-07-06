@@ -14,11 +14,13 @@ const {
   getById,
   createTable,
   updateTable,
+  deleteTable,
 } = require("./controllers/mesas");
 app.get("/", getAll);
 app.get("/:id", getById);
 app.post("/", createTable);
 app.patch("/:id", updateTable);
+app.delete("/:id", deleteTable);
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);

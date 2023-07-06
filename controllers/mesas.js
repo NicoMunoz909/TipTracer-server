@@ -36,4 +36,13 @@ const updateTable = async (req, res) => {
   );
 };
 
-module.exports = { getAll, getById, createTable, updateTable };
+const deleteTable = async (req, res) => {
+  const mesaBorrada = await Mesas.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.sendStatus(200).send(mesaBorrada);
+};
+
+module.exports = { getAll, getById, createTable, updateTable, deleteTable };
