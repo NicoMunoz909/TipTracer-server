@@ -1,4 +1,5 @@
 import { RxCross1 } from "react-icons/rx";
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = () => {
@@ -11,10 +12,10 @@ const Sidebar = () => {
     <div id="sidebar" className="sidebar-container">
       <RxCross1 onClick={hideSidebar}></RxCross1>
       <div className="sidebar-content">
-        <a href="/dia">Día</a>
-        <a href="/semana">Semana</a>
-        <a href="/mes">Mes</a>
-        <a href="/custom">Personalizado</a>
+        <Link to={"/dia"}>Dia</Link>
+        <Link to={"/semanal"}>Semanal</Link>
+        <Link to={"/mensual"}>Mensual</Link>
+        <Link to={"/personalizado"}>Personalizado</Link>
       </div>
     </div>
   );

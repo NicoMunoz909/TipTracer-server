@@ -123,7 +123,9 @@ function App() {
       <Datebar date={date} onChange={setDate}></Datebar>
       <Infobar amounts={amounts}></Infobar>
       {tables.length === 0 && (
-        <h2 style={{ textAlign: "center" }}>No hay mesas que pobreza</h2>
+        <h2 style={{ textAlign: "center", height: "0px", margin: "0px" }}>
+          No hay mesas que pobreza
+        </h2>
       )}
       <div className="tablesContainer">
         {tables.map((table) => {
