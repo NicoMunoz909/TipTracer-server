@@ -16,7 +16,7 @@ function App() {
 
   // useEffect(() => {
   //   fetch(
-  //     `https://nmz.world/?fechaDesde=${formatDate(
+  //     `https://localhost:4000/?fechaDesde=${formatDate(
   //       getWeekRange(date).firstDay
   //     )}&fechaHasta=${formatDate(getWeekRange(date).lastDay)}`
   //   )
@@ -25,7 +25,7 @@ function App() {
   // }, [date, isFormOpen]);
 
   useEffect(() => {
-    fetch(`https://nmz.world/api?fecha=${formatDate(date)}`)
+    fetch(`https://localhost:4000/api?fecha=${formatDate(date)}`)
       .then((res) => res.json())
       .then((data) => setTables(data));
   }, [date, isFormOpen]);
@@ -83,7 +83,7 @@ function App() {
       tipoPropina: e.target[3].value,
       fecha: e.target[4].value,
     };
-    fetch(`https://nmz.world/api`, {
+    fetch(`https://localhost:4000/api`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -102,7 +102,7 @@ function App() {
       tipoPropina: e.target[3].value,
       fecha: e.target[4].value,
     };
-    fetch(`https://nmz.world/api/${selectedTable.id}`, {
+    fetch(`https://localhost:4000/api/${selectedTable.id}`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -113,7 +113,7 @@ function App() {
   };
 
   const handleDelete = () => {
-    fetch(`https://nmz.world/api/${selectedTable.id}`, {
+    fetch(`https://localhost:4000/api/${selectedTable.id}`, {
       method: "DELETE",
     });
     setIsFormOpen(false);
