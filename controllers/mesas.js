@@ -34,6 +34,7 @@ const updateTable = async (req, res) => {
     { ...req.body },
     { where: { id: req.params.id } }
   );
+  res.status(200).send(mesa);
 };
 
 const deleteTable = async (req, res) => {
