@@ -2,17 +2,17 @@ const { Op } = require("sequelize");
 const { Mesas } = require("../db/models");
 
 const getAll = async (req, res) => {
-  const body = { ...req.body };
+  const query = { ...req.query };
   const filters = { where: {} };
   try {
-    for (const key in body) {
-      if (Object.hasOwnProperty.call(body, key)) {
-        if (key === "fechaDesde" || key === "fechaHasta") {
+    for (const key in query) {
+      if (Object.hasOwnProperty.call(query, key)) {
+        if (key === "desde" || key === "hasta") {
           filters.where["fecha"] = {
-            [Op.between]: [body.fechaDesde, body.fechaHasta],
+            [Op.between]: [query.fechaDesde, query.fechaHasta],
           };
         } else {
-          filters.where[key] = body[key];
+          filters.where[key] = query[key];
         }
       }
     }
