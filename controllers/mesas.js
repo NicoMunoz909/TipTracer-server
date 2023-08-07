@@ -9,7 +9,7 @@ const getAll = async (req, res) => {
       if (Object.hasOwnProperty.call(query, key)) {
         if (key === "desde" || key === "hasta") {
           filters.where["fecha"] = {
-            [Op.between]: [query.fechaDesde, query.fechaHasta],
+            [Op.between]: [query.desde, query.hasta],
           };
         } else {
           filters.where[key] = query[key];
