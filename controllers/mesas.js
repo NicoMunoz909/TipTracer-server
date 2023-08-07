@@ -35,7 +35,7 @@ const getById = async (req, res) => {
 const createTable = async (req, res) => {
   try {
     const nuevaMesa = await Mesas.create({ ...req.body });
-    res.status(200).send("Mesa creada exitosamente");
+    res.status(200).send({ mesa: nuevaMesa, msg: "Mesa creada exitosamente" });
   } catch (error) {
     res.status(500).send(error.original.sqlMessage);
   }
@@ -44,7 +44,7 @@ const createTable = async (req, res) => {
 const updateTable = async (req, res) => {
   try {
     const mesa = await Mesas.update({ ...req.body }, { where: { id: req.params.id } });
-    res.status(200).send("Mesa modificada exitosamente");
+    res.status(200).send({ id: req.params.id, msg: "Mesa modificada exitosamente" });
   } catch (error) {
     res.status(500).send(error.original.sqlMessage);
   }
@@ -57,7 +57,7 @@ const deleteTable = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.sendStatus(200).send("Mesa borrada exitosamente");
+    res.sendStatus(200).send({ id: req.params.id, msg: "Mesa borrada exitosamente" });
   } catch (error) {
     res.status(500).send(error.original.sqlMessage);
   }
