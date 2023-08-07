@@ -57,7 +57,7 @@ const deleteTable = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.sendStatus(200).send({ id: req.params.id, msg: "Mesa borrada exitosamente" });
+    res.status(200).send({ id: req.params.id, msg: "Mesa borrada exitosamente" });
   } catch (error) {
     res.status(500).send(error.original.sqlMessage);
   }
